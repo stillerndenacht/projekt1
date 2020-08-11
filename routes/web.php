@@ -19,6 +19,7 @@ Route::get('/', function () {
 Route::get('/dashboardnew', function (){
     return view('dashboard', $data);
 });
+Route::get('/dbtest', 'TestController@dbTest');
 Route::get('/', function () {
     $data = array('projekte'=>array(
         'p1'=>array('projectname' => 'OnlineShop',
