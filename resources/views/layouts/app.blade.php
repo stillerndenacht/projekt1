@@ -54,16 +54,29 @@
             </thead>
             <tbody>
             <!--Stunde 1 ########################-->
-            <tr>
-                <td rowspan="4">1</td>
-                <td>Bearbeiter1</td>
-                <td>Mo Pkürzel Bearbeiter1</td>
-                <td>Di Pkürzel Bearbeiter1</td>
-                <td>Mi Pkürzel Bearbeiter1</td>
-                <td>Do Pkürzel Bearbeiter1</td>
-                <td>Fr Pkürzel Bearbeiter1</td>
-            </tr>
-            <tr>
+            @for($i = 1; $i<=8; $i++)
+                @php $worker = array("Ivan Ivan","Oleg Oleg", "Svetlana Svetlana", "Katija Katija");
+                $workercount = count($worker); @endphp
+                @for($ii = 0; $ii<$workercount; $ii++)
+                    <tr>
+                        <td rowspan="">{{$i}}</td>
+                        <td>{{$worker[$ii]}}</td>
+                        <!--<td>Mo Pkürzel Bearbeiter1</td>
+                        <td>Di Pkürzel Bearbeiter1</td>
+                        <td>Mi Pkürzel Bearbeiter1</td>
+                        <td>Do Pkürzel Bearbeiter1</td>
+                        <td>Fr Pkürzel Bearbeiter1</td>-->
+
+                        @php $datum = array("Mo", "Di","Mi","Do","Fr"); @endphp
+                        @foreach ($datum as $tag)
+                            <td>{{$tag}}. Pkürzel Bearbeiter1</td>
+                        @endforeach
+
+
+                    </tr>
+                @endfor
+            @endfor
+            {{--<tr>
                 <td>Bearbeiter2</td>
                 <td>Mo Pkürzel Bearbeiter2</td>
                 <td>Di Pkürzel Bearbeiter2</td>
@@ -324,7 +337,7 @@
                 <td>Mi Pkürzel Bearbeiter4</td>
                 <td>Do Pkürzel Bearbeiter4</td>
                 <td>Fr Pkürzel Bearbeiter4</td>
-            </tr>
+            </tr>--}}
             </tbody>
         </table>
     </div>
